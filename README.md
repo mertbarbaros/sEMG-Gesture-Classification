@@ -1,7 +1,4 @@
-# sEMG-Gesture-Classification
-
-
-# sEMG Gesture Recognition Project
+# sEMG-Gesture-Classification Project
 
 This repository contains code and analysis for a surface electromyography (sEMG) gesture recognition project. The project aims to classify hand gestures based on sEMG signals recorded from two channels.
 
