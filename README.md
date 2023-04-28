@@ -1,33 +1,30 @@
 # sEMG-Gesture-Classification Project
 
-This repository contains code and analysis for a surface electromyography (sEMG) gesture recognition project. The project aims to classify hand gestures based on sEMG signals recorded from two channels.
+This project aims to build a classification model for sEMG (surface electromyography) signals to recognize hand gestures performed by individuals using machine learning techniques. The ultimate goal is to create a reliable and accurate classification model that can be used in real-world applications such as prosthetic control, human-robot interaction, and virtual reality.
 
-## Dataset
-The dataset used in this project consists of sEMG data collected from three participants performing a series of hand gestures. The gestures include:
+## Data Acquisition
+sEMG signals were collected from 6 participants while performing 6 different hand gestures. Each gesture was performed for 2 seconds.
 
-Rest
-Yumruk (Fist)
-El dışarı (Hand outward)
-El yukarı (Hand upward)
-İçe bükme (Wrist inward)
-El içeri (Hand inward)
-Yumruk (Fist)
-Additionally, the dataset was expanded to include tightened gesture data (zorlama), where the participants' hands were tightened during the trials. This new data provided more distinctive features for the classification algorithm.
+## Preprocessing
+The collected sEMG signals were preprocessed by filtering and cleaning to remove any noise or unwanted artifacts.
 
-## Methodology
-The analysis involved preprocessing the raw sEMG data, including filtering and feature extraction. The following steps were performed:
+## Feature Extraction
+Relevant features were extracted from the preprocessed sEMG signals to be used for classification.
 
-- Bandpass filtering of the sEMG signals to focus on the frequency range of interest.
-- Extraction of features, such as waveform length and slope sign changes, to capture essential characteristics of the sEMG signals.
-- Division of the dataset into training and testing sets.
-- Standardization of the features for more effective machine learning.
-- Application of K-Nearest Neighbors (KNN) and Support Vector Machine (SVM) algorithms for gesture classification. (more to come)
+## Handling Outliers
+Various outlier handling and data transformation techniques were applied to the normalized DataFrame, including Interquartile Range (IQR), Z-score Standardization, Yeo-Johnson Transformation, Winsorization, Hampel Filter, and a combination of IQR and Z-score.
 
-## Results
-The KNN classifier, when applied to the expanded dataset with tightened gesture data, achieved an accuracy of 82%. This is a significant improvement compared to the initial analysis without the tightened gesture data. The results indicate that the tightened gesture data provides more distinctive features, allowing for better differentiation between various hand gestures.
+## Classification
+Different machine learning models were developed and compared for classifying the hand gestures based on the extracted features, including KNN.
+
+## Model Evaluation
+The performance of the developed models was evaluated using metrics such as accuracy, precision, recall, and F1 score. The best accuracy achieved was 99% using the Z-score method.
+
+## Hardware
+The Grove EMG detector was used to collect sEMG signals, and an STM32 microcontroller was used to handle calculations required by the machine learning algorithm.
+
+## Code
+The code includes functions for data preprocessing, outlier handling, feature extraction, and classification. The code is provided in Python and can be easily adapted for different applications.
 
 ## Conclusion
-The incorporation of tightened gesture data (zorlama) in the sEMG analysis led to a substantial improvement in the classification accuracy. This suggests that capturing more subtle differences in muscle activation patterns can provide additional information for the classifier to identify unique features across gestures.
-
-Future work could explore additional feature extraction techniques, machine learning algorithms, or optimization strategies to further improve the classification accuracy. Investigating the impact of collecting more data from a larger number of participants, as well as exploring different types of gestures or variations in hand positions, would help in creating more generalizable and robust models for gesture recognition. Such improvements could contribute to the development of more accurate and reliable systems for controlling prosthetic limbs or other assistive devices.
-
+This project demonstrates the feasibility of using sEMG signals and machine learning techniques for gesture recognition. The achieved accuracy of 99% using a smaller number of sensors is promising for real-world applications. The code and methods used in this project can be adapted for other similar projects or applications.
